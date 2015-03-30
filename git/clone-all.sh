@@ -43,7 +43,7 @@ cd $ROOT_DIR
 
 logInfo "Récupération des dépendances externes"
 
-mkdir $EXTERNAL_DIR/adafruit
+mkdir -p $EXTERNAL_DIR/adafruit
 cd $EXTERNAL_DIR/adafruit
 
 git clone git@github.com:adafruit/Adafruit_Sensor.git
