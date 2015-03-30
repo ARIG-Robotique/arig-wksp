@@ -49,6 +49,7 @@ logInfo "Projet Java"
 
 cd $ROOT_DIR
 mkdir $JAVA_DIR
+cd $JAVA_DIR
 
 logInfo "Récupération de la lib ARIG Robotique"
 git clone git@github.com:ARIG-Robotique/robot-system-lib-parent.git
@@ -59,6 +60,7 @@ logInfo "Projet Electronique"
 
 cd $ROOT_DIR
 mkdir $ELEC_DIR
+cd $ELEC_DIR
 
 logInfo "Récupération des parts Fritzing"
 git clone git@github.com:ARIG-Robotique/fritzing-parts.git
@@ -86,5 +88,7 @@ git clone git@github.com:adafruit/Adafruit_10DOF.git
 
 logInfo "Dépendances pour le capteur RGB"
 git clone git@github.com:adafruit/Adafruit_TCS34725.git
+
+###################################################
 
 cd $ROOT_DIR
