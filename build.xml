@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="arig-scripts" default="copy-all-data">
+	<description>Scripts de dev</description>
+
+	<property name="workspace.racine" value="../" />
+	
+	<!-- Nettoyage des scripts -->
+	<target name="clean-scripts">
+		<echo>Nettoyage des scripts précédents</echo>
+		<delete includeemptydirs="true" verbose="true" failonerror="false">
+			<fileset dir="${workspace.racine}" includes="*.sh" />
+		</delete>
+	</target>
+	
+	<!-- COPY des données DICT de toutes les application -->
+	<target name="copy-scripts" depends="clean-scripts">
+		<echo>Copy des fichiers de scripts GIT -> ${workspace.racine}</echo>
+		<copy todir="${workspace.racine}" verbose="true" overwrite="true">
+			<fileset dir="./git" includes="**/*" />
+		</copy>
+
+		<!-- Pour ceux qui on un vrai OS ;-) -->
+		<chmod perm="a+x" dir="${workspace.racine}" includes="*.sh" verbose="true" />
+	</target>
+	
+	<!-- Target de copy général -->	
+	<target name="copy-all-data" depends="copy-scripts" />
+</project>
+
