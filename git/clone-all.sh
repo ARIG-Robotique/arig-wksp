@@ -37,11 +37,11 @@ git clone git@github.com:ARIG-Robotique/robot-system-lib.git
 logInfo "Récupération du programme de lecture codeurs ARIG"
 git clone git@github.com:ARIG-Robotique/quadratic-reader.git
 
-logInfo "Récupération du programme du robot principal"
-git clone git@github.com:ARIG-Robotique/robot-main-big.git
+logInfo "Récupération du programme du robot principal (Nerell)"
+git clone git@github.com:ARIG-Robotique/nerell-cpp.git
 
-logInfo "Récupération du programme du robot secondaire"
-git clone git@github.com:ARIG-Robotique/robot-main-small.git
+logInfo "Récupération du programme du robot secondaire (Elfa)"
+git clone git@github.com:ARIG-Robotique/elfa-cpp.git
 
 ###################################################
 
@@ -53,6 +53,12 @@ cd $JAVA_DIR
 
 logInfo "Récupération de la lib ARIG Robotique"
 git clone git@github.com:ARIG-Robotique/robot-system-lib-parent.git
+
+logInfo "Récupération du programme du robot principal (Nerell)"
+git clone git@github.com:ARIG-Robotique/nerell-java.git
+
+logInfo "Récupération du programme du robot secondaire (Elfa)"
+git clone git@github.com:ARIG-Robotique/elfa-java.git
 
 ###################################################
 
@@ -88,6 +94,15 @@ git clone git@github.com:adafruit/Adafruit_10DOF.git
 
 logInfo "Dépendances pour le capteur RGB"
 git clone git@github.com:adafruit/Adafruit_TCS34725.git
+
+cd $ROOT_DIR
+mkdir -p $EXTERNAL_DIR/ninjablocks
+cd $EXTERNAL_DIR/ninjablocks
+
+logInfo "Dépendances Ninjablocks"
+
+logInfo "Dépendances Arduino"
+git clone git@github.com:ninjablocks/arduino.git
 
 ###################################################
 
