@@ -44,6 +44,9 @@ git clone git@github.com:ARIG-Robotique/nerell-cpp.git
 logInfo "Récupération du programme du robot secondaire (Elfa)"
 git clone git@github.com:ARIG-Robotique/elfa-cpp.git
 
+logInfo "Diagnostique"
+git clone git@github.com:ARIG-Robotique/diagnostique-cpp.git
+
 ###################################################
 
 logInfo "Projet Java"
