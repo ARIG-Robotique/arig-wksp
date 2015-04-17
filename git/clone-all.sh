@@ -17,6 +17,7 @@ fi
 ROOT_DIR=`pwd`
 CPP_DIR=cpp
 JAVA_DIR=java
+JS_DIR=js
 ELEC_DIR=electronique
 EXTERNAL_DIR=external
 
@@ -59,6 +60,17 @@ git clone git@github.com:ARIG-Robotique/nerell-java.git
 
 logInfo "Récupération du programme du robot secondaire (Elfa)"
 git clone git@github.com:ARIG-Robotique/elfa-java.git
+
+###################################################
+
+logInfo "Projet Javascript"
+
+cd $ROOT_DIR
+mkdir $JS_DIR
+cd $JS_DIR
+
+logInfo "Récupération du monitoring Nerell"
+git clone git@github.com:ARIG-Robotique/nerell-monitor.git
 
 ###################################################
 
