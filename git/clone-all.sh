@@ -119,6 +119,13 @@ logInfo "Dépendances Ninjablocks"
 logInfo "Dépendances Arduino"
 git clone git@github.com:ninjablocks/arduino.git
 
+cd $ROOT_DIR
+mkdir -p $EXTERNAL_DIR/pi4j
+cd $EXTERNAL_DIR/pi4j
+
+logInfo "Dépendance PI4J"
+git clone git@github.com:gdepuille/pi4j.git
+
 ###################################################
 
 cd $ROOT_DIR
