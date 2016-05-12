@@ -3,7 +3,7 @@
 #
 # Author : Gregory DEPUILLE
 
-# Variable pour detecté l'inclusion
+# Variable pour detecter l'inclusion
 FUNCTIONS_INC=1
 export FUNCTION_INC
 
@@ -83,14 +83,6 @@ function logInfoAndExit {
 }
 export -f logInfoAndExit
 
-# Function d'execution de commande, avec sortie si erreur
-function executeCmd {
-	eval $1
-	RESULT=$?
-	[ $RESULT -ne 0 ] && logErrorAndExit "Erreur d'execution de la commande $1 => Retour : $RESULT" $RESULT
-}
-export -f executeCmd
-
 ################################
 # Fonction de manipulation GIT #
 ################################
@@ -98,13 +90,11 @@ export -f executeCmd
 # Définition de la fonction permettant de faire un fetch du repo GIT
 function fetchGit {
 	GIT_REPO=${PWD##*/}
-		
-	logInfo "Projet Git ${LRED}$GIT_REPO${RESTORE}"
 
-	git fetch -p 
-	
+	echo -e "${LRED}$GIT_REPO${RESTORE}: ${LGREEN}Fetch, prune remote and clean local branch when is removed on remote.${RESTORE}"
+	git fetch -p
+
 	# Nettoyage dans le repo local des branches eventuellement supprimer sur le distant.
-	# NB : Commande d'origine de Didier Coignet tous droits réservé.
 	for b in `git branch -vv | egrep "\[origin/.*: (gone|disparue)\]" | cut -d ' ' -f3` ; do
 		logInfo "Suppression de la branche local $b"
 		git branch -D $b
@@ -112,18 +102,10 @@ function fetchGit {
 }
 export -f fetchGit
 
-# Git configuration
-# Placer ici les directives de configuration des clients Git.
-
-# Configuration global de Git
-function gitGlobalConfig {
-	# Ne pas garder les fichiers *.orig une fois les merges et compagnie effectué.
-	git config --global mergetool.keepBackup false
-	git config --global rerere.enabled true
-	
-	logInfo "Config global GIT"
+# Function d'execution de commande, avec sortie si erreur
+function executeCmd {
+	eval $1
+	RESULT=$?
+	[ $RESULT -ne 0 ] && logErrorAndExit "Erreur d'execution de la commande $1 => Retour : $RESULT" $RESULT
 }
-export -f gitGlobalConfig
-
-# Application de la config Git Global
-gitGlobalConfig
+export -f executeCmd

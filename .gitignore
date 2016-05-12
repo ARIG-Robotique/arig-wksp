@@ -1,0 +1,26 @@
+# Ignore everything, so all repositories in our case
+*
+
+# But no these files
+!.projects.gws
+!.gitignore
+!*.sh
+
+# IDE #
+#######
+
+# Eclipse Project Files
+.settings/
+.project
+.classpath
+bin/
+
+# Idea Project Files
+.idea/
+*.iml
+.editorconfig
+.ant-targets-build.xml
+
+# Maven build
+target/
+overlays/
