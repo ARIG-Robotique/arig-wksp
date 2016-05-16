@@ -4,7 +4,7 @@
 ############
 
 # Dépendances pour l'écran LCD
-adafruit/Adafruit-GFX-Library | git@github.com:adafruit/Adafruit-GFX-Library.git
+adafruit/Adafruit_GFX | git@github.com:adafruit/Adafruit-GFX-Library.git
 adafruit/Adafruit_SSD1306 | git@github.com:adafruit/Adafruit_SSD1306.git
 
 # Dépendances pour le Gyroscope (10 DOF : BMP085, L3GD20, LSM303)
