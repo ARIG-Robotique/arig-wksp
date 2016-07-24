@@ -28,3 +28,8 @@ ninjablocks/arduino | git@github.com:ninjablocks/arduino.git
 
 # Dépendance PI4J
 pi4j | https://github.com/Pi4J/pi4j.git
+
+# PathFinding #
+###############
+
+pathfinding | git://git.code.sf.net/p/pathfinder4processing/code
