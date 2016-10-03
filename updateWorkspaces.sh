@@ -21,35 +21,39 @@ for rootCtx in * ; do
   logInfo "Check syncho $rootCtx"
 	if [ -d $rootCtx ] && [ -f $rootCtx/.projects.gws ] ; then
 		cd $rootCtx
-		
+
 		ALREADY_CLONED=`ls | wc -l`
 		if [ "$ALREADY_CLONED" -ne "0" ] ; then
 		  logInfo "Contenu a synchroniser détecté $PWD"
 		  gws update
-		  
+
 		  for repo in * ; do
+				if [ ! -d $repo ] ; then
+					continue
+				fi
+
 		    # Contrôle que le repo n'as pas été déplacer
 		    grep $repo .projects.gws > /dev/null
 		    if [ "$?" -ne "0" ] ; then
   		    echo -e "${LRED}$repo${RESTORE}: ${LRED} /!\\/!\\/!\\ Removed from GWS management /!\\/!\\/!\\ ${RESTORE}"
 		      rm -Rf $repo
-        fi 
-		  
+        fi
+
 		    if [ -d $repo/.git ] ; then
           cd $repo
     			fetchGit
     			cd ..
 		    fi
 		  done;
-		  
+
 		  gws ff
-		  
+
  		  logInfo "Configuration de MU Repo"
 		  mu unregister --all
 		  mu register --current
-		  
+
 		fi
-		
+
 		cd ..
 	else
 	  logWarn "$rootCtx n'est pas a synchroniser"
