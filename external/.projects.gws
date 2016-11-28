@@ -34,7 +34,8 @@ pi4j | https://github.com/Pi4J/pi4j.git
 
 pathfinding | git://git.code.sf.net/p/pathfinder4processing/code
 
-# Java CPP Presets #
-####################
+# Java CPP #
+############
 
+javacpp | git@github.com:bytedeco/javacpp.git
 javacpp-presets | git@github.com:ARIG-Robotique/javacpp-presets.git | git@github.com:bytedeco/javacpp-presets.git
