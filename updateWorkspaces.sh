@@ -11,6 +11,18 @@ fi
 # CORPS DU SCRIPTS #
 ####################
 
+if [ -d dockers/influxdata ] ; then
+	logInfo "Renomage du repo dockers/influxdata -> dockers/robot-storage"
+	cd dockers/
+	mv -v influxdata robot-storage
+	cd robot-storage
+	git remote -v
+	git remote set-url origin git@github.com:ARIG-Robotique/docker-robot-storage.git
+	logInfo "Nouvelle config GIT"
+	git remote -v
+	cd ../..
+fi
+
 logInfo "Mise a jour du workspace"
 gws update
 fetchGit
