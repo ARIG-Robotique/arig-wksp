@@ -30,8 +30,8 @@ gws ff
 
 logInfo "Scan du worksapce a synchroniser"
 for rootCtx in * ; do
-  logInfo "Check syncho $rootCtx"
 	if [ -d $rootCtx ] && [ -f $rootCtx/.projects.gws ] ; then
+		logInfo "Check syncho $rootCtx"
 		cd $rootCtx
 
 		ALREADY_CLONED=`ls | wc -l`
@@ -67,7 +67,5 @@ for rootCtx in * ; do
 		fi
 
 		cd ..
-	else
-	  logWarn "$rootCtx n'est pas a synchroniser"
 	fi
 done
