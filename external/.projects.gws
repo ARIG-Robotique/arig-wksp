@@ -39,3 +39,8 @@ pathfinding | git://git.code.sf.net/p/pathfinder4processing/code
 
 javacpp | git@github.com:bytedeco/javacpp.git
 javacpp-presets | git@github.com:ARIG-Robotique/javacpp-presets.git | git@github.com:bytedeco/javacpp-presets.git
+
+# Librairie JSON C++ #
+######################
+
+json | git@github.com:nlohmann/json.git
