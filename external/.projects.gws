@@ -44,3 +44,8 @@ javacpp-presets | git@github.com:ARIG-Robotique/javacpp-presets.git | git@github
 ######################
 
 json | git@github.com:nlohmann/json.git
+
+# Librairie Java Socket AF_UNIX #
+#################################
+
+junixsocket | git@github.com:kohlschutter/junixsocket.git
