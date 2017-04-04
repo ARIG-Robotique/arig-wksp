@@ -48,4 +48,4 @@ json | git@github.com:nlohmann/json.git
 # Librairie Java Socket AF_UNIX #
 #################################
 
-junixsocket | git@github.com:kohlschutter/junixsocket.git
+junixsocket | git@github.com:ARIG-Robotique/junixsocket.git | git@github.com:kohlschutter/junixsocket.git
