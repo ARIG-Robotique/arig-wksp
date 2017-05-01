@@ -23,6 +23,18 @@ if [ -d dockers/influxdata ] ; then
 	cd ../..
 fi
 
+if [ -d dockers/docker-robot-storage ] ; then
+	logInfo "Renomage du repo dockers/docker-robot-storage -> dockers/robot-tools"
+	cd dockers/
+	mv -v docker-robot-storage robot-tools
+	cd robot-tools
+	git remote -v
+	git remote set-url origin git@github.com:ARIG-Robotique/docker-robot-tools.git
+	logInfo "Nouvelle config GIT"
+	git remote -v
+	cd ../..
+fi
+
 logInfo "Mise a jour du workspace"
 gws update
 fetchGit
