@@ -16,6 +16,8 @@ set(CMAKE_TOOLCHAIN_FILE ./arduino-cmake/cmake/ArduinoToolchain.cmake)
 
 set(ARDUINO_CXX_FLAGS    "-std=c++11")
 
+#add_definitions(-DDEBUG_MODE)
+
 #====================================================================#
 #  Setup Project                                                     #
 #====================================================================#
