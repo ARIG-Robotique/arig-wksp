@@ -12,7 +12,7 @@ fi
 ####################
 
 logInfo "Visualisation des changements"
-gws
+gws --only-changes
 
 logInfo "Scan du worksapces"
 for rootCtx in * ; do
@@ -23,7 +23,7 @@ for rootCtx in * ; do
 		if [ "$ALREADY_CLONED" -ne "0" ] ; then
 			echo ''
 			logInfo "Contenu racine : $PWD"
-		  gws status
+		  gws status --only-changes
 		fi
 
 		cd ..

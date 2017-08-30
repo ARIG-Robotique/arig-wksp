@@ -38,7 +38,7 @@ fi
 logInfo "Mise a jour du workspace"
 gws update
 fetchGit
-gws ff
+gws ff --only-changes
 
 logInfo "Scan du worksapce a synchroniser"
 for rootCtx in * ; do
@@ -70,7 +70,7 @@ for rootCtx in * ; do
 		    fi
 		  done;
 
-		  gws ff
+		  gws ff --only-changes
 
  		  logInfo "Configuration de MU Repo"
 		  mu unregister --all
