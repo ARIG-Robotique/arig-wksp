@@ -32,7 +32,7 @@ pi4j | git@github.com:ARIG-Robotique/pi4j.git | git@github.com:Pi4J/pi4j.git
 # PathFinding #
 ###############
 
-pathfinding | git://git.code.sf.net/p/pathfinder4processing/code
+pathfinding | git@github.com:ARIG-Robotique/pathfinding.git | git://git.code.sf.net/p/pathfinder4processing/code
 
 # Java CPP #
 ############
