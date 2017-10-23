@@ -54,8 +54,12 @@ for rootCtx in * ; do
 		  gws update --only-changes
 
 		  for repo in * ; do
+				if [ ! -d $repo ] ; then
+					continue
+				fi
+
 		    # Contrôle que le repo n'as pas été déplacer
-		    grep $repo.git .projects.gws > /dev/null
+		    grep $repo .projects.gws > /dev/null
 		    if [ "$?" -ne "0" ] ; then
   		    echo -e "${LRED}$repo${RESTORE}: ${LRED} /!\\/!\\/!\\ Removed from GWS management /!\\/!\\/!\\ ${RESTORE}"
 		      rm -Rf $repo
