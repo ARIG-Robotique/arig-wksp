@@ -51,21 +51,21 @@ export WHITE
 # Fonction de log info
 function logInfo {
 	DATE=`date +"%d-%m-%y %T"`
-	echo -e " [ ${LGREEN}INFO${RESTORE} : $DATE ] $1"
+	echo -e " [ ${LGREEN}INFO${RESTORE} : ${DATE} ] $1"
 }
 export -f logInfo
 
 # Fonction de log warning
 function logWarn {
 	DATE=`date +"%d-%m-%y %T"`
-	echo -e " [ ${LYELLOW}WARN${RESTORE} : $DATE ] $1"
+	echo -e " [ ${LYELLOW}WARN${RESTORE} : ${DATE} ] $1"
 }
 export -f logWarn
 
 # Fonctions de log erreur
 function logError {
 	DATE=`date +"%d-%m-%y %T"`
-	echo -e " [ ${LRED}ERROR${RESTORE} : $DATE ] $1"
+	echo -e " [ ${LRED}ERROR${RESTORE} : ${DATE} ] $1"
 }
 export -f logError
 
@@ -91,7 +91,7 @@ export -f logInfoAndExit
 function fetchGit {
 	GIT_REPO=${PWD##*/}
 
-	echo -e "${LRED}$GIT_REPO${RESTORE}: ${LGREEN}Fetch, prune remote and clean local branch when is removed on remote.${RESTORE}"
+	echo -e "${LRED}${GIT_REPO}${RESTORE}: ${LGREEN}Fetch, prune remote and clean local branch when is removed on remote.${RESTORE}"
 	git fetch -p
 
 	# Nettoyage dans le repo local des branches eventuellement supprimer sur le distant.
@@ -102,10 +102,33 @@ function fetchGit {
 }
 export -f fetchGit
 
+# Configuration des hooks
+function configHooks {
+	GIT_REPO=${PWD##*/}
+
+	if [ -f ".pre-commit-config.yaml" ] ; then
+		echo -e "${LRED}${GIT_REPO}${RESTORE}: ${LBLUE}Configuration des hooks${RESTORE}"
+
+		for x in pre-commit pre-push commit-msg ; do
+			pre-commit install -t ${x} > /dev/null
+		done
+	fi
+}
+export -f configHooks
+
+# Configuration des hooks
+function addToMu {
+	GIT_REPO=$1
+	echo -e "${LRED}${GIT_REPO}${RESTORE}: ${LCYAN}Ajout dans mu_repo${RESTORE}"
+
+	echo "repo=${GIT_REPO}" >> .mu_repo
+}
+export -f addToMu
+
 # Function d'execution de commande, avec sortie si erreur
 function executeCmd {
 	eval $1
 	RESULT=$?
-	[ $RESULT -ne 0 ] && logErrorAndExit "Erreur d'execution de la commande $1 => Retour : $RESULT" $RESULT
+	[ $RESULT -ne 0 ] && logErrorAndExit "Erreur d'execution de la commande $1 => Retour : ${RESULT}" ${RESULT}
 }
 export -f executeCmd
