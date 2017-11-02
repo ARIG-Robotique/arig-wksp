@@ -13,3 +13,5 @@ if [ ! -f "$ARDUINO_FILENAME.tgz" ] ; then
   curl -L $ARDUINO_DOWNLOAD_URL -o $ARDUINO_FILENAME.tgz
   tar xvzf $ARDUINO_FILENAME.tgz
 fi
+
+chown -R root:root ${DOWNLOAD_DIR}/arduino-${ARDUINO_SDK_VERSION}
