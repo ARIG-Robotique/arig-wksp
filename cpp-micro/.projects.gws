@@ -1,10 +1,9 @@
 # Projets C++ :
 
 # Build tools
-arduino-cmake | https://github.com/queezythegreat/arduino-cmake.git
+arduino-cmake-ng | git@github.com:arduino-cmake/Arduino-CMake-NG.git
 
 # Projets ARIG
-arduino-core | git@github.com:ARIG-Robotique/arduino-core.git
 robot-system-lib | git@github.com:ARIG-Robotique/robot-system-lib.git
 quadratic-reader | git@github.com:ARIG-Robotique/quadratic-reader.git
 nerell-cpp | git@github.com:ARIG-Robotique/nerell-cpp.git
