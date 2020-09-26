@@ -3,7 +3,7 @@
 # Author : Gregory DEPUILLE
 
 # Inclusions des fonctions communes.
-if [ -z $FUNCTIONS_INC ] ; then
+if [ -z ${FUNCTIONS_INC} ] ; then
 	. functions.sh
 fi
 
@@ -11,28 +11,10 @@ fi
 # CORPS DU SCRIPTS #
 ####################
 
-if [ -d dockers/influxdata ] ; then
-	logInfo "Renomage du repo dockers/influxdata -> dockers/robot-storage"
-	cd dockers/
-	mv -v influxdata robot-storage
-	cd robot-storage
-	git remote -v
-	git remote set-url origin git@github.com:ARIG-Robotique/docker-robot-storage.git
-	logInfo "Nouvelle config GIT"
-	git remote -v
-	cd ../..
-fi
-
-if [ -d dockers/docker-robot-storage ] ; then
-	logInfo "Renomage du repo dockers/docker-robot-storage -> dockers/robot-tools"
-	cd dockers/
-	mv -v docker-robot-storage robot-tools
-	cd robot-tools
-	git remote -v
-	git remote set-url origin git@github.com:ARIG-Robotique/docker-robot-tools.git
-	logInfo "Nouvelle config GIT"
-	git remote -v
-	cd ../..
+# Fix d'un bug concernant la gestion du cache GWS sur MacOS X
+if [ "$(uname)" == "Darwin" ] ; then
+	logWarn "BUGFIX ! Suppression du cache de GWS sur $(uname)"
+	find . -type f -name '.cache.gws' -exec rm -vf '{}' \;
 fi
 
 logInfo "Mise a jour du workspace"
@@ -40,11 +22,41 @@ gws update
 fetchGit
 gws ff --only-changes
 rm -f .mu_repo
-configHooks
+installHooks
+
+# Liste des périmètres obsolètes
+for r in aws proto saisie gendoc-templates v5 retd dev-tools ; do
+	if [ -d "${r}" ] ; then
+  		logWarn "${LRED}/!\\/!\\/!\\ Removed perimeter ${r} /!\\/!\\/!\\ ${RESTORE}"
+  		rm -Rf $r
+	fi
+done
+
+# Renommage inopiné
+if [ -d amiante-voirie/voirie-parent ] ; then
+	logWarn "Renommage de voirie-parent -> amiante-voirie-parent"
+	mv amiante-voirie/voirie-parent amiante-voirie/amiante-voirie-parent
+fi
+if [ -d declaration-chantier/declaration-chantier-parent ] ; then
+	logwarn "Renommage de declaration-chantier-parent -> pradictio-parent"
+	mv declaration-chantier/declaration-chantier-parent declaration-chantier/pradictio-parent
+fi
+if [ -d declaration-chantier/declaration-chantier-multiplexeur ] ; then
+  logwarn "Renommage de declaration-chantier-parent -> pradictio-parent"
+  mv declaration-chantier/declaration-chantier-multiplexeur declaration-chantier/pradictio-multiplexeur
+fi
+if [ -d declaration-chantier/messaging-declaration-chantier-schemas ] ; then
+  logwarn "Renommage de messaging-declaration-chantier-schemas -> messaging-pradictio-schemas"
+  mv declaration-chantier/messaging-declaration-chantier-schemas declaration-chantier/messaging-pradictio-schemas
+fi
+if [ -d declaration-chantier ] ; then
+	logwarn "Renommage de declaration-chantier -> pradictio"
+	mv declaration-chantier pradictio
+fi
 
 logInfo "Scan du worksapce a synchroniser"
 for rootCtx in * ; do
-  logInfo "Check syncho $rootCtx"
+  logInfo "Check synchro $rootCtx"
 	if [ -d $rootCtx ] && [ -f $rootCtx/.projects.gws ] ; then
 		cd $rootCtx
 
@@ -59,7 +71,7 @@ for rootCtx in * ; do
 				fi
 
 		    # Contrôle que le repo n'as pas été déplacer
-		    grep $repo .projects.gws > /dev/null
+		    grep $repo.git .projects.gws > /dev/null
 		    if [ "$?" -ne "0" ] ; then
   		    echo -e "${LRED}$repo${RESTORE}: ${LRED} /!\\/!\\/!\\ Removed from GWS management /!\\/!\\/!\\ ${RESTORE}"
 		      rm -Rf $repo
@@ -84,7 +96,7 @@ for rootCtx in * ; do
 					addToMu $repo
 
 					cd $repo
-					configHooks
+					installHooks
 					cd ..
 		    fi
 		  done;
@@ -95,3 +107,5 @@ for rootCtx in * ; do
 	  logWarn "$rootCtx n'est pas a synchroniser"
 	fi
 done
+
+echo "$(date '+%d-%m-%Y %H:%M:%S')" > .lastUpdated

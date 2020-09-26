@@ -103,18 +103,37 @@ function fetchGit {
 export -f fetchGit
 
 # Configuration des hooks
-function configHooks {
+function installHooks {
 	GIT_REPO=${PWD##*/}
 
 	if [ -f ".pre-commit-config.yaml" ] ; then
-		echo -e "${LRED}${GIT_REPO}${RESTORE}: ${LBLUE}Configuration des hooks${RESTORE}"
+		echo -e "${LRED}${GIT_REPO}${RESTORE}: ${LBLUE}Installation des hooks${RESTORE}"
 
-		for x in pre-commit pre-push commit-msg ; do
+		for x in pre-commit pre-merge-commit pre-push prepare-commit-msg commit-msg post-commit post-checkout ; do
 			pre-commit install -t ${x} > /dev/null
 		done
 	fi
 }
-export -f configHooks
+export -f installHooks
+
+function uninstallHooks {
+	GIT_REPO=${PWD##*/}
+
+	if [ -f ".pre-commit-config.yaml" ] ; then
+		echo -e "${LRED}${GIT_REPO}${RESTORE}: ${LYELLOW}Désinstallation des hooks${RESTORE}"
+
+		for x in pre-commit pre-merge-commit pre-push prepare-commit-msg commit-msg post-commit post-checkout ; do
+			pre-commit uninstall -t ${x} > /dev/null
+		done
+	fi
+}
+export -f uninstallHooks
+
+function reinstallHooks {
+	uninstallHooks
+	installHooks
+}
+export -f reinstallHooks
 
 # Configuration des hooks
 function addToMu {
