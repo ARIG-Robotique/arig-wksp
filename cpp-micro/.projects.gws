@@ -10,4 +10,4 @@ nerell-cpp | git@github.com:ARIG-Robotique/nerell-cpp.git
 elfa-cpp | git@github.com:ARIG-Robotique/elfa-cpp.git
 elfa-ota | git@github.com:ARIG-Robotique/elfa-ota.git
 alim-mesure | git@github.com:ARIG-Robotique/alim-mesure.git
-gest-pompes | git@github.com:ARIG-Robotique/vacuum-pumps.git
+vacuum-pumps | git@github.com:ARIG-Robotique/vacuum-pumps.git
