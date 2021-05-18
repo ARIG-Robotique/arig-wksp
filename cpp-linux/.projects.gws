@@ -5,3 +5,4 @@ odin-gui | git@github.com:ARIG-Robotique/odin-gui.git
 rplidar-visualizer | git@github.com:ARIG-Robotique/rplidar-visualizer.git
 rplidar-bridge | git@github.com:ARIG-Robotique/rplidar-bridge.git
 vision-balise | git@github.com:ARIG-Robotique/vision-balise.git
+robot-launcher | git@github.com:ARIG-Robotique/robot-launcher.git
