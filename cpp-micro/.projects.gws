@@ -1,7 +1,7 @@
 # Projets C++ :
 
 # Build tools
-arduino-cmake-ng | git@github.com:arduino-cmake/Arduino-CMake-NG.git
+arduino-cmake-ng | git@github.com:arduino-cmake/arduino-cmake-ng.git
 
 # Projets ARIG
 robot-system-lib | git@github.com:ARIG-Robotique/robot-system-lib.git
