@@ -12,3 +12,4 @@ elfa-ota | git@github.com:ARIG-Robotique/elfa-ota.git
 alim-mesure | git@github.com:ARIG-Robotique/alim-mesure.git
 vacuum-pumps | git@github.com:ARIG-Robotique/vacuum-pumps.git
 fouille-reader | git@github.com:ARIG-Robotique/fouille-reader.git
+tinker-cpp | git@github.com:ARIG-Robotique/tinker-cpp.git
