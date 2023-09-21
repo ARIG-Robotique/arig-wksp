@@ -1,15 +1,6 @@
 # Projets C++ :
 
-# Build tools
-arduino-cmake-ng | git@github.com:arduino-cmake/arduino-cmake-ng.git
-
 # Projets ARIG
-robot-system-lib | git@github.com:ARIG-Robotique/robot-system-lib.git
-quadratic-reader | git@github.com:ARIG-Robotique/quadratic-reader.git
-nerell-cpp | git@github.com:ARIG-Robotique/nerell-cpp.git
-elfa-cpp | git@github.com:ARIG-Robotique/elfa-cpp.git
-elfa-ota | git@github.com:ARIG-Robotique/elfa-ota.git
 alim-mesure | git@github.com:ARIG-Robotique/alim-mesure.git
 vacuum-pumps | git@github.com:ARIG-Robotique/vacuum-pumps.git
-fouille-reader | git@github.com:ARIG-Robotique/fouille-reader.git
 tinker-cpp | git@github.com:ARIG-Robotique/tinker-cpp.git

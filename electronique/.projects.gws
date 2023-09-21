@@ -1,6 +1,8 @@
 # Projets Electronique:
 
-fritzing-parts | git@github.com:ARIG-Robotique/fritzing-parts.git
+# ARIG
 kicad-projects | git@github.com:ARIG-Robotique/kicad-projects.git
+
+# Others
 kicad-jlcpcb-bom-plugin | git@github.com:wokwi/kicad-jlcpcb-bom-plugin.git
 kicad-spice-library | git@github.com:kicad-spice-library/KiCad-Spice-Library.git
