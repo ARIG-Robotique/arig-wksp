@@ -1,5 +1,6 @@
 # Projets QT/C++ :
 
+cyclop | git@github.com:ARIG-Robotique/cyclop-private.git | git@github.com:ARIG-Robotique/cyclop.git
 robots-gui | git@github.com:ARIG-Robotique/robots-gui.git
 rplidar-bridge | git@github.com:ARIG-Robotique/rplidar-bridge.git
 vision-balise | git@github.com:ARIG-Robotique/vision-balise.git
