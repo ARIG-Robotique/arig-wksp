@@ -2,6 +2,7 @@
 
 # Projets ARIG
 alim-mesure | git@github.com:ARIG-Robotique/alim-mesure.git
-vacuum-pumps | git@github.com:ARIG-Robotique/vacuum-pumps.git
-tinker-cpp | git@github.com:ARIG-Robotique/tinker-cpp.git
+asserv-controller | git@github.com:ARIG-Robotique/asserv-controller.git
 io-pami | git@github.com:ARIG-Robotique/io-pami.git
+tinker-cpp | git@github.com:ARIG-Robotique/tinker-cpp.git
+vacuum-pumps | git@github.com:ARIG-Robotique/vacuum-pumps.git
