@@ -1,6 +1,7 @@
 # Projets C++ :
 
 # Projets ARIG
+alim-controller | git@github.com:ARIG-Robotique/alim-controller.git
 alim-mesure | git@github.com:ARIG-Robotique/alim-mesure.git
 asserv-controller | git@github.com:ARIG-Robotique/asserv-controller.git
 io-pami | git@github.com:ARIG-Robotique/io-pami.git
