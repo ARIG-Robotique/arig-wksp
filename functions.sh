@@ -95,7 +95,7 @@ function fetchGit {
 	git fetch -p
 
 	# Nettoyage dans le repo local des branches eventuellement supprimer sur le distant.
-	for b in `git branch -vv | egrep "\[origin/.*: (gone|disparue)\]" | cut -d ' ' -f3` ; do
+	for b in `git branch -vv | grep -E "\[origin/.*: (gone|disparue)\]" | cut -d ' ' -f3` ; do
 		logInfo "Suppression de la branche local $b"
 		git branch -D $b
 	done
