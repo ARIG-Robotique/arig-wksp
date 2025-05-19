@@ -1,8 +1,8 @@
 # Projets QT/C++ :
 
-cyclop | git@github.com:ARIG-Robotique/cyclop.git
-robots-gui | git@github.com:ARIG-Robotique/robots-gui.git
+cyclops | git@github.com:ARIG-Robotique/cyclops.git
 lidar-bridge | git@github.com:ARIG-Robotique/lidar-bridge.git
-vision-balise | git@github.com:ARIG-Robotique/vision-balise.git
-robot-launcher | git@github.com:ARIG-Robotique/robot-launcher.git
+lidar-visualizer | git@github.com:ARIG-Robotique/lidar-visualizer.git
 raspi-crosstools | git@github.com:ARIG-Robotique/raspi-crosstools.git
+robot-launcher | git@github.com:ARIG-Robotique/robot-launcher.git
+robots-gui | git@github.com:ARIG-Robotique/robots-gui.git
